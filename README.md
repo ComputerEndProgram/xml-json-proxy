@@ -63,7 +63,7 @@ sudo nano index.js
 ### 4. Build the Docker image
 
 ```bash
-docker build -t xml-json-proxy .
+sudo docker build -t xml-json-proxy .
 ```
 
 ---
@@ -71,7 +71,7 @@ docker build -t xml-json-proxy .
 ### 5. Run it in detached mode (auto-restarts on reboot)
 
 ```bash
-docker run -d --restart unless-stopped -p 5000:5000 xml-json-proxy
+sudo docker run -d --restart unless-stopped -p 5000:5000 xml-json-proxy
 ```
 
 ---
@@ -95,8 +95,8 @@ Or open it in a browser:
 
 - To stop the container:
   ```bash
-  docker ps    # get the container ID
-  docker stop <container-id>
+  sudo docker ps    # get the container ID
+  sudo docker stop <container-id>
   ```
 
 - To update the feed URL again, repeat step 3 and then re-run steps 4 and 5.
