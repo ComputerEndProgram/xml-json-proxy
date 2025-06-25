@@ -21,83 +21,80 @@ A simple Dockerized Node.js service that fetches a remote XML/RSS feed, converts
 
 ```bash
 git clone https://github.com/yourusername/xml-json-proxy.git
+cd xml-json-proxy
+```
 
+> Replace `yourusername` with your actual GitHub username.
+
+---
+
+### 2. Build the Docker image
 
 ```bash
-cd xml-json-proxy
-
-
-
-
-
----
-
-2. Build the Docker image
-
 docker build -t xml-json-proxy .
-
+```
 
 ---
 
-3. Run the container in detached mode with restart enabled
+### 3. Run the container in detached mode with restart enabled
 
+```bash
 docker run -d --restart unless-stopped -p 5000:5000 xml-json-proxy
+```
 
--d runs it in the background
-
---restart unless-stopped ensures it auto-starts on boot or crash
-
-
+- `-d` runs it in the background
+- `--restart unless-stopped` ensures it auto-starts on boot or crash
 
 ---
 
-4. Access the live JSON feed
+### 4. Access the live JSON feed
 
 Open in your browser or use curl:
 
+```bash
 curl http://localhost:5000/feed.json
-
+```
 
 ---
 
-🔧 Development Mode (without Docker)
+## 🔧 Development Mode (without Docker)
 
 To run locally (Node.js 18+ required):
 
+```bash
 cd xml-json-proxy
 npm install
 node index.js
+```
 
-Then open:
-http://localhost:5000/feed.json
-
+Then open:  
+`http://localhost:5000/feed.json`
 
 ---
 
-🛠 Configuration
+## 🛠 Configuration
 
-To change the RSS/XML source, edit the XML_URL in index.js:
+To change the RSS/XML source, edit the `XML_URL` in `index.js`:
 
+```js
 const XML_URL = "https://your-feed-url.com/rss.xml";
-
+```
 
 ---
 
-📜 License
+## 📜 License
 
 MIT License
 
-
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
 Pull requests welcome! If you find a bug or have a feature request, feel free to open an issue.
 
-
 ---
 
-✉️ Contact
+## ✉️ Contact
 
-Maintained by [Your Name].
+Maintained by [Your Name].  
 Questions or ideas? Reach out via GitHub Issues.
