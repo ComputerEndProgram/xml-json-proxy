@@ -4,7 +4,7 @@ const xml2js = require("xml2js");
 
 const app = express();
 const PORT = 5000;
-const XML_URL = "https://server106admin.duckdns.org/rss.xml";
+const XML_URL = "YOUR XML URL E.G. https://example.com/feed.xml";
 
 app.get("/feed.json", async (req, res) => {
   try {
