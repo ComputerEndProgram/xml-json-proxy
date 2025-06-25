@@ -8,7 +8,7 @@ A simple Dockerized Node.js service that fetches a remote XML/RSS feed, converts
 
 - Live XML-to-JSON conversion (no caching)
 - Always fetches from:  
-  `https://server106admin.duckdns.org/rss.xml`
+  `https://example.com/feed.xml (can be edited)`
 - Outputs JSON at:  
   `http://localhost:5000/feed.json`
 - Lightweight and fully containerized
@@ -20,11 +20,9 @@ A simple Dockerized Node.js service that fetches a remote XML/RSS feed, converts
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/xml-json-proxy.git
+git clone https://github.com/ComputerEndProgram/xml-json-proxy.git
 cd xml-json-proxy
 ```
-
-> Replace `yourusername` with your actual GitHub username.
 
 ---
 
@@ -96,5 +94,5 @@ Pull requests welcome! If you find a bug or have a feature request, feel free to
 
 ## ✉️ Contact
 
-Maintained by [Your Name].  
+Maintained by ComputerEndProgram.  
 Questions or ideas? Reach out via GitHub Issues.
