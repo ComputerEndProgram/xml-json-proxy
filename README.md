@@ -23,7 +23,8 @@ Live-convert any RSS/XML feed into JSON using Docker.
 ### 0. Install Docker (if not already installed)
 
 Follow the official guide:  
-👉 https://docs.docker.com/get-docker/
+- 👉 https://docs.docker.com/get-docker/
+- 👉 Install on Ubuntu Server (recommended, stable) https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 
 ---
 
