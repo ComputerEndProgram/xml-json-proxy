@@ -1,32 +1,65 @@
 # XML to JSON Live Proxy
 
-A simple Dockerized Node.js service that fetches a remote XML/RSS feed, converts it live to JSON, and serves it over HTTP.
+Live-convert any RSS/XML feed into JSON using Docker.
 
 ---
 
-## 🛠 Features
+## ✅ What it does
 
-- Live XML-to-JSON conversion (no caching)
-- Always fetches from:  
-  `https://example.com/feed.xml (can be edited)`
-- Outputs JSON at:  
-  `http://localhost:5000/feed.json`
-- Lightweight and fully containerized
+- Fetches an XML feed (e.g. RSS)
+- Converts it live to JSON
+- Serves it via `/feed.json`
 
 ---
 
-## 🚀 Quick Start
+## 🧰 Requirements
 
-### 1. Clone the repository
+- A system with [Docker installed](https://docs.docker.com/get-docker/)
+
+---
+
+## 🚀 Setup Guide
+
+### 0. Install Docker (if not already installed)
+
+Follow the official guide:  
+👉 https://docs.docker.com/get-docker/
+
+---
+
+### 1. Clone this repo
 
 ```bash
 git clone https://github.com/ComputerEndProgram/xml-json-proxy.git
+```
+
+---
+
+### 2. Enter the folder
+
+```bash
 cd xml-json-proxy
 ```
 
 ---
 
-### 2. Build the Docker image
+### 3. Edit the XML feed URL
+
+```bash
+sudo nano index.js
+```
+
+- Go to **line 7**:
+  ```js
+  const XML_URL = "https://example.com/feed.xml";
+  ```
+
+- Change the URL to your own XML/RSS feed  
+- Then press: `Ctrl + X`, type `Y`, then `Enter` to save
+
+---
+
+### 4. Build the Docker image
 
 ```bash
 docker build -t xml-json-proxy .
@@ -34,65 +67,41 @@ docker build -t xml-json-proxy .
 
 ---
 
-### 3. Run the container in detached mode with restart enabled
+### 5. Run it in detached mode (auto-restarts on reboot)
 
 ```bash
 docker run -d --restart unless-stopped -p 5000:5000 xml-json-proxy
 ```
 
-- `-d` runs it in the background
-- `--restart unless-stopped` ensures it auto-starts on boot or crash
-
 ---
 
-### 4. Access the live JSON feed
-
-Open in your browser or use curl:
+### 6. Access your live JSON feed
 
 ```bash
-curl http://localhost:5000/feed.json
+curl http://<your-server-ip>:5000/feed.json
 ```
+
+Or open it in a browser:  
+`http://<your-server-ip>:5000/feed.json`
 
 ---
 
-## 🔧 Development Mode (without Docker)
-
-To run locally (Node.js 18+ required):
-
-```bash
-cd xml-json-proxy
-npm install
-node index.js
-```
-
-Then open:  
-`http://localhost:5000/feed.json`
+### 7. ✅ Enjoy your auto-converted JSON feed!
 
 ---
 
-## 🛠 Configuration
+## 🛠 Notes
 
-To change the RSS/XML source, edit the `XML_URL` in `index.js`:
+- To stop the container:
+  ```bash
+  docker ps    # get the container ID
+  docker stop <container-id>
+  ```
 
-```js
-const XML_URL = "https://your-feed-url.com/rss.xml";
-```
+- To update the feed URL again, repeat step 3 and then re-run steps 4 and 5.
 
 ---
 
-## 📜 License
+## 📄 License
 
 MIT License
-
----
-
-## 🤝 Contributing
-
-Pull requests welcome! If you find a bug or have a feature request, feel free to open an issue.
-
----
-
-## ✉️ Contact
-
-Maintained by ComputerEndProgram.  
-Questions or ideas? Reach out via GitHub Issues.
